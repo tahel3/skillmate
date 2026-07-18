@@ -1,0 +1,175 @@
+/* מרכוז מושלם של כל קופסת הטופס בדיוק באמצע המסך */
+.register-container {
+  display: flex !important;
+  justify-content: center !important; /* ממרכז אופקית */
+  align-items: center !important;     /* ממרכז אנכית */
+  min-height: 100vh;
+  width: 100vw;                     
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: 0 auto !important;        
+  padding: 40px 20px;
+  box-sizing: border-box;
+  direction: ltr;
+  font-family: sans-serif;
+  background-color: #FAF6F0;
+}
+
+/* כרטיסיית הטופס */
+.register-paper {
+  background-color: #FFFDF9;
+  border: 1px solid #EFEAE2;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(60, 42, 33, 0.04);
+  padding: 35px;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;                     /* מוודא שהכרטיסייה עצמה ממורכזת בפנים */
+}
+
+/* כותרת הטופס בחום כהה */
+.register-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #3C2A21;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.register-form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* שורת שדות כפולה */
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.register-form-box .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.register-form-box label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #55433C; /* גוון חום-אפרפר עדין לטקסט */
+}
+
+/* שדות קלט חלקים */
+.register-form-box .form-input,
+.register-form-box .form-select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #DFDCD6;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+  background-color: #FFF;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* פוקוס בגוון חום מותג */
+.register-form-box .form-input:focus,
+.register-form-box .form-select:focus {
+  outline: none;
+  border-color: #B85C38;
+  box-shadow: 0 0 0 3px rgba(184, 92, 56, 0.1);
+}
+
+/* שדה טקסט ארוך לקורות חיים */
+.form-textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #DFDCD6;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #B85C38;
+  box-shadow: 0 0 0 3px rgba(184, 92, 56, 0.1);
+}
+
+/* שינוי משמעותי: כפתור הרשמה בגוון המותג החום-תפוז במקום הירוק */
+.register-submit-btn {
+  background-color: #B85C38; /* צבע כפתור החיפוש מדף הבית */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 13px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* אפקט החלקת עכבר מעל הכפתור */
+.register-submit-btn:hover {
+  background-color: #A04A2B;
+}
+
+.register-submit-btn:active {
+  transform: scale(0.98);
+}
+
+.register-submit-btn:disabled {
+  background-color: #DFDCD6;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* שגיאות */
+.error-text {
+  color: #C14E29;
+  font-size: 13px;
+  margin: 2px 0 0 0;
+}
+
+.alert-error {
+  background-color: #FDF4F2;
+  color: #C14E29;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  border: 1px solid #F6D6CE;
+}
+.auth-switch-container {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.auth-switch-text {
+  font-size: 14px;
+  color: #7D6E65; /* גוון חום משני מעודן */
+  margin: 0;
+}
+
+.auth-switch-link {
+  color: #B85C38; /* צבע מותג חום-כתום */
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 4px; /* מרווח קל עבור כיווניות RTL */
+  transition: color 0.2s ease-in-out;
+}
+
+.auth-switch-link:hover {
+  color: #3C2A21; /* חום כהה מותג בזמן מעבר עכבר */
+  text-decoration: underline;
+}

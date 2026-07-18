@@ -1,0 +1,120 @@
+/* רקע כללי ומירכוז העמוד */
+.add-skill-main-wrapper {
+  background-color: #fcfbfa; /* גוון בהיר חמים התואם לעיצוב הכללי */
+  min-height: calc(100vh - 80px);
+  padding: 60px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* כרטיסיית הטופס המרכזית */
+.add-skill-card-container {
+  background-color: #ffffff;
+  border: 1px solid #e8e5e2;
+  border-radius: 24px !important;
+  max-width: 650px;
+  width: 100%;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(45, 27, 16, 0.04) !important;
+}
+
+/* אזור הכותרת */
+.add-skill-header-box {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.add-skill-title {
+  font-family: serif; /* סגנון הכותרות האלגנטי של האפליקציה */
+  font-size: 2.25rem;
+  color: #2d1b10;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.add-skill-subtitle {
+  font-size: 1rem;
+  color: #6e5d53;
+  margin: 0;
+}
+
+/* מבנה הטופס והמרווחים */
+.add-skill-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* שורות מפוצלות (קטגוריה ורמה) */
+.add-skill-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 480px) {
+  .add-skill-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* התאמת אלמנטי הקלט של Material UI לפלטת הצבעים */
+.add-skill-form .MuiOutlinedInput-root {
+  border-radius: 12px;
+  background-color: #fdfdfd;
+}
+
+.add-skill-form .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #8e7e74;
+}
+
+.add-skill-form .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #bc4a23; /* צבע הכתום-חמרה של המותג בפוקוס */
+}
+
+.add-skill-form .MuiInputLabel-root.Mui-focused {
+  color: #bc4a23;
+}
+
+/* כפתור הפרסום המרכזי */
+.add-skill-submit-btn {
+  background-color: #bc4a23 !important;
+  color: #ffffff !important;
+  padding: 14px 24px !important;
+  border-radius: 30px !important;
+  font-weight: bold !important;
+  font-size: 1.05rem !important;
+  text-transform: none !important;
+  margin-top: 8px;
+  transition: background-color 0.2s ease !important;
+}
+
+.add-skill-submit-btn:hover {
+  background-color: #a23b1a !important;
+}
+
+.add-skill-submit-btn:disabled {
+  background-color: #e8e5e2 !important;
+}
+
+/* מערכת ההודעות (Alerts) */
+.add-skill-alert {
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.add-skill-alert.success {
+  background-color: #f0f7f4;
+  color: #2e6f40;
+  border: 1px solid #d1e7dd;
+}
+
+.add-skill-alert.error {
+  background-color: #fdf2f2;
+  color: #ae2b2b;
+  border: 1px solid #fde2e2;
+}

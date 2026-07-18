@@ -1,0 +1,44 @@
+/* src/pages/Profile.css */
+.profile-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fcf8f3;
+    border: 1px solid #d7ccc8;
+    direction: ltr;
+}
+.profile-form { display: flex; flex-direction: column; gap: 10px; }
+.disabled-field { background-color: #efebe9; cursor: not-allowed; }
+button { background-color: #8b5e3c; color: white; padding: 10px; border: none; }
+
+.profile-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fcf8f3;
+    border: 1px solid #d7ccc8;
+    border-radius: 8px;
+    direction: ltr; 
+    text-align: left;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.save-button {
+    background-color: #5d4037; /* חום כהה כדי שהטקסט הלבן יבלוט */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.save-button:hover {
+    background-color: #3e2723;
+}

@@ -1,0 +1,179 @@
+/* מכולה ראשית */
+.skills-main-container {
+  background-color: #F9F6F0;
+  /* רקע שמנת רך */
+  min-height: 100vh;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  direction: ltr;
+  /* תמיכה מלאה בימין לשמאל */
+}
+
+/* כותרת הדף */
+.skills-page-title {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-weight: 700;
+  color: #3C2C20;
+  /* גוון חום כהה יוקרתי */
+}
+
+/* קופסאות ממורכזות (טעינה ושגיאה) */
+.skills-center-flex-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #F9F6F0;
+}
+
+/* אזור שדות החיפוש */
+.skills-search-section {
+  background-color: #FFFFFF;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+  margin-bottom: 32px;
+}
+
+/* התאמת שדות הקלט של MUI */
+.skills-text-field-custom .MuiOutlinedInput-root {
+  border-radius: 12px;
+}
+
+.skills-text-field-custom .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #B85C38 !important;
+  /* צבע מותג חום-כתום בפוקוס */
+}
+
+.skills-text-field-custom .MuiInputLabel-root.Mui-focused {
+  color: #B85C38 !important;
+}
+
+.skills-card-image {
+  width: 100%;
+  height: 140px;
+  /* גובה המלבן של התמונה */
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 12px;
+}
+
+/*כרטיס הכישורים */
+.skills-skill-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  /* רוחב מלבני קטן */
+  border-radius: 16px !important;
+  overflow: hidden;
+  /* כדי שהתמונה תישאר בתוך פינות הכרטיס */
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.03) !important;
+  transition: transform 0.2s ease-in-out;
+}
+
+.skills-skill-card:hover {
+  transform: translateY(-4px);
+  /* אפקט הרמה קל */
+  box-shadow: 0px 12px 24px rgba(184, 92, 56, 0.12) !important;
+  /* צל בגוון המותג */
+}
+
+/* תוכן הכרטיס */
+.skills-card-content-custom {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px !important;
+}
+
+/* שורת כותרת הכרטיס */
+.skills-card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+/* שם הכישור */
+.skills-name-text {
+  font-weight: 600 !important;
+  color: #3C2C20;
+  font-size: 1.25rem !important;
+}
+
+/* תגית קטגוריה */
+.skills-category-badge {
+  background-color: #FDF4F2;
+  color: #B85C38;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* תיאור הכישור עם הגבלת שורות */
+.skills-description-text {
+  color: #6D5D53;
+  line-height: 1.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* חיתוך לאחר 3 שורות */
+  -webkit-box-orient: vertical;
+}
+
+/* מעטפת פגינציה */
+.skills-pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+/* התאמת רכיב הפגינציה של MUI */
+.skills-pagination-custom .MuiPaginationItem-root.Mui-selected {
+  background-color: #B85C38 !important;
+  color: #FFFFFF !important;
+}
+
+.skills-pagination-custom .MuiPaginationItem-root.Mui-selected:hover {
+  background-color: #A04B2C !important;
+}
+
+/* תגית רמת הכישור */
+.skills-level-badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skills-level-badge--beginner {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.skills-level-badge--intermediate {
+  background-color: #fff8e1;
+  color: #f57f17;
+}
+
+.skills-level-badge--advanced {
+  background-color: #fce4ec;
+  color: #c62828;
+}
+
+.skills-level-badge--expert {
+  background-color: #ede7f6;
+  color: #4527a0;
+}

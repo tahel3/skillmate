@@ -1,0 +1,69 @@
+/* WaitingList.css - עיצוב חם ונעים */
+.waiting-list-container {
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 900px;
+  margin: auto;
+  direction: ltr; /* וידוא יישור לימין */
+  color: #4a3728; /* חום כהה לטקסט */
+}
+
+h2 {
+  color: #6f4e37; /* חום עמוק לכותרת */
+  margin-bottom: 30px;
+  border-bottom: 2px solid #d2b48c; /* פס דקורטיבי עדין */
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.waitlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fffaf0; /* גוון קרם רך לרקע הטבלה */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(111, 78, 55, 0.1); /* צל רך וחום */
+}
+
+.waitlist-table th, .waitlist-table td {
+  padding: 18px;
+  text-align: right;
+  border-bottom: 1px solid #e6dcc5;
+}
+
+.waitlist-table th {
+  background-color: #d2b48c; /* חום חול לכותרות הטבלה */
+  color: #fff;
+  font-weight: 600;
+}
+
+/* עיצוב כפתור הסרה - מותאם לצבעים */
+.delete-btn {
+  background-color: #a0522d; /* חום אדמדם נעים */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px; /* פינות מעוגלות לכפתור */
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #8b4513;
+}
+
+/* עיצוב הסטטוסים - צבעים חמים יותר */
+.status-pending { color: #d4a017; font-weight: bold; }
+.status-notified { color: #8b7355; font-weight: bold; }
+.status-completed { color: #6b8e23; font-weight: bold; }
+
+/* הודעה במקרה שהרשימה ריקה */
+.empty-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #8b7355;
+  margin-top: 50px;
+  background: #fdf5e6;
+  padding: 20px;
+  border-radius: 8px;
+}

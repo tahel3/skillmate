@@ -1,0 +1,29 @@
+.main-footer {
+  background-color: #EFEAE2; /* גוון חול-חלב עדין ושונה מרקע הדף */
+  border-top: 1px solid #DFDCD6; /* קו הפרדה דק וחלש מעל הפוטר */
+  padding: 20px 10px;
+  text-align: center;
+  direction: rtl;
+  font-family: sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: auto; /* דוחף את הפוטר לתחתית העמוד אם אין מספיק תוכן */
+}
+
+.footer-text {
+  color: #55433C; /* גוון חום-אפרפר כהה לטקסט */
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.footer-text a {
+  color: #B85C38;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}

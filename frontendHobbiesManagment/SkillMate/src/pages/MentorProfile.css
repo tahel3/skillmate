@@ -1,0 +1,227 @@
+.mentor-profile-container {
+  min-height: 100vh;
+  background-color: #FAF6F0; /* רקע חלבי עדין */
+  padding: 40px 60px;
+  direction: ltr;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+/* כרטיס פרופיל ראשי */
+.mentor-main-card {
+  background-color: #FFFDF9;
+  border: 1px solid #EFEAE2;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 35px;
+  box-shadow: 0 4px 12px rgba(60, 42, 33, 0.02);
+}
+
+.mentor-large-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #EFEAE2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.mentor-main-info {
+  flex: 1;
+}
+
+.mentor-name-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #3C2A21;
+  margin: 0 0 6px 0;
+}
+
+.mentor-location-sub {
+  font-size: 15px;
+  color: #7D6E65;
+  margin: 0;
+}
+
+/* רשת פרטי המנטור (כישורים, ניסיון וכו') */
+.mentor-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.detail-block {
+  background-color: #FFF;
+  border: 1px solid #EFEAE2;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.detail-block-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #3C2A21;
+  margin: 0 0 12px 0;
+  border-bottom: 1px solid #FDF6F0;
+  padding-bottom: 6px;
+}
+
+.detail-block-text {
+  font-size: 15px;
+  color: #55433C;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* תגיות כישורים */
+.skills-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  background-color: #F5EFEB;
+  color: #3C2A21;
+  padding: 6px 14px;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* כפתורי פעולה בפרופיל */
+.profile-actions-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.profile-action-btn {
+  background-color: #FFF;
+  border: 1px solid #DFDCD6;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3C2A21;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.profile-action-btn:hover {
+  background-color: #FDF4F2;
+  border-color: #B85C38;
+  color: #B85C38;
+}
+
+/* כותרות סקשנים */
+.section-title {
+  font-size: 20px;
+  color: #3C2A21;
+  font-weight: bold;
+  margin: 25px 0 15px 0;
+}
+
+/* רשימת זמינות ורכיבי הלוח */
+.availability-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.availability-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FDFBF7;
+  border: 1px solid #EFEAE2;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 15px;
+  color: #3C2A21;
+  font-weight: 500;
+}
+
+.remove-btn {
+  background-color: transparent;
+  border: none;
+  color: #7D6E65;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  color: #B85C38;
+}
+
+.no-requests-box {
+  background-color: transparent;
+  border: 1px dashed #DFDCD6;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  color: #7D6E65;
+  font-size: 15px;
+}
+
+/* עיצוב נייר של לוח השנה */
+.mentor-calendar-paper {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #EFEAE2;
+  background-color: #FFFDF9;
+  max-width: 400px;
+  margin-bottom: 35px;
+}
+/* קונטיינר שעוטף את הלוח והכפתור יחד כדי לשמור על מרכזיות */
+.calendar-section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background-color: #FFF;
+  border: 1px solid #EFEAE2;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(60, 42, 33, 0.01);
+}
+
+/* עיצוב כפתור רשימת ההמתנה המהמם */
+.waitlist-submit-btn {
+  width: 100%;
+  max-width: 320px; /* שלא יהיה רחב מדי, שיישאר אלגנטי */
+  padding: 12px 24px;
+  background-color: #B85C38; /* החום-כתום המותגי הראשי */
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px; /* פינות מעוגלות בלון עדינות */
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(184, 92, 56, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+/* אפקט מעבר עכבר חלבי כהה יותר */
+.waitlist-submit-btn:hover {
+  background-color: #5C3D2E; /* החום הכהה החם במעבר עכבר */
+  box-shadow: 0 6px 14px rgba(92, 61, 46, 0.2);
+  transform: translateY(-1px);
+}
+
+/* מצב שבו הכפתור מנוטרל (למשל כשעדיין לא נבחר תאריך) */
+.waitlist-submit-btn:disabled {
+  background-color: #EFEAE2;
+  color: #A39389;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
