@@ -288,16 +288,64 @@
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .ai-panel {
-    right: 12px;
-    left: 12px;
+    right: 16px;
+    left: 16px;
     width: auto;
-    bottom: 88px;
+    bottom: 90px;
+    max-height: 60vh;
   }
 
   .ai-fab {
-    right: 16px;
-    bottom: 20px;
+    right: 20px;
+    bottom: 24px;
+  }
+
+  .ai-fab-label {
+    display: none; /* רק האייקון נשאר בטאבלט */
+  }
+
+  .ai-fab {
+    padding: 12px;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-panel {
+    right: 8px;
+    left: 8px;
+    bottom: 80px;
+    max-height: 65vh;
+    border-radius: 16px;
+  }
+
+  .ai-fab {
+    right: 14px;
+    bottom: 18px;
+  }
+
+  .ai-messages {
+    padding: 12px;
+  }
+
+  .ai-bubble {
+    max-width: 88%;
+    font-size: 0.84rem;
+  }
+
+  .ai-suggestions {
+    padding: 0 10px 8px;
+    gap: 5px;
+  }
+
+  .ai-suggestion-chip {
+    font-size: 0.74rem;
+    padding: 4px 10px;
+  }
+
+  .ai-input-row {
+    padding: 10px 10px;
   }
 }

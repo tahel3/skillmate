@@ -1,6 +1,7 @@
 package com.example.hobbiesmanagment.Controllers;
 
 import com.example.hobbiesmanagment.DTO.ChatMessagePayload;
+import com.example.hobbiesmanagment.DTO.ChatMessageSaveResponseDto;
 import com.example.hobbiesmanagment.DTO.ConversationSummaryDto;
 import com.example.hobbiesmanagment.Exception.ResourceNotFoundException;
 import com.example.hobbiesmanagment.Service.ChatMessageService;
@@ -33,33 +34,38 @@ public class ChatController {
             if (payload.getContent() == null || payload.getContent().isBlank())
                 throw new IllegalArgumentException("Message content cannot be empty");
 
-            chatMessageService.saveMessage(payload);
+            // Save and get back the full DTO including id + timestamp
+            ChatMessageSaveResponseDto saved = chatMessageService.saveMessage(payload);
 
-            messagingTemplate.convertAndSendToUser(
-                    payload.getRecipientId().toString(),
-                    "/queue/messages",
-                    payload
+            // Deliver to recipient on their personal topic
+            messagingTemplate.convertAndSend(
+                    "/topic/messages/" + payload.getRecipientId(),
+                    saved
+            );
+
+            // Also echo back to sender (so the sender's UI can replace the
+            // optimistic message with the server-confirmed one, including id + timestamp)
+            messagingTemplate.convertAndSend(
+                    "/topic/messages/" + payload.getSenderId(),
+                    saved
             );
 
         } catch (IllegalArgumentException e) {
-            messagingTemplate.convertAndSendToUser(
-                    payload.getSenderId().toString(),
-                    "/queue/errors",
+            messagingTemplate.convertAndSend(
+                    "/topic/errors/" + payload.getSenderId(),
                     "Invalid data: " + e.getMessage()
             );
 
         } catch (ResourceNotFoundException e) {
-            messagingTemplate.convertAndSendToUser(
-                    payload.getSenderId().toString(),
-                    "/queue/errors",
+            messagingTemplate.convertAndSend(
+                    "/topic/errors/" + payload.getSenderId(),
                     "User not found: " + e.getMessage()
             );
 
         } catch (Exception e) {
             System.err.println("Failed to process chat message: " + e.getMessage());
-            messagingTemplate.convertAndSendToUser(
-                    payload.getSenderId().toString(),
-                    "/queue/errors",
+            messagingTemplate.convertAndSend(
+                    "/topic/errors/" + payload.getSenderId(),
                     "Failed to send message, please try again"
             );
         }

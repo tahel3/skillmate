@@ -67,3 +67,82 @@ h2 {
   padding: 20px;
   border-radius: 8px;
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .waiting-list-container {
+    padding: 24px 12px;
+  }
+
+  .waitlist-table th,
+  .waitlist-table td {
+    padding: 12px 10px;
+    font-size: 0.9rem;
+  }
+
+  .delete-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* על מובייל קטן — הטבלה הופכת לכרטיסיות */
+@media (max-width: 540px) {
+  .waiting-list-container {
+    padding: 16px 8px;
+  }
+
+  /* מסתירים את שורת הכותרות */
+  .waitlist-table thead {
+    display: none;
+  }
+
+  .waitlist-table,
+  .waitlist-table tbody,
+  .waitlist-table tr,
+  .waitlist-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* כל שורה = כרטיס */
+  .waitlist-table tr {
+    background: #fffaf0;
+    border: 1px solid #e6dcc5;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    padding: 8px 0;
+    box-shadow: 0 2px 8px rgba(111, 78, 55, 0.08);
+  }
+
+  /* כל תא מציג תווית מה-data-label */
+  .waitlist-table td {
+    text-align: right;
+    padding: 8px 14px;
+    border-bottom: 1px solid #f0e8d8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .waitlist-table td:last-child {
+    border-bottom: none;
+  }
+
+  /* תווית מה-attribute */
+  .waitlist-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #6f4e37;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .empty-message {
+    font-size: 1rem;
+    margin-top: 30px;
+  }
+}

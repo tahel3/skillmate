@@ -108,12 +108,19 @@ function MessageThread({ currentUserId, recipient }) {
   const [errorMsg, setErrorMsg] = useState(null);
   const messagesEndRef = useRef(null);
 
+  // Keep a ref to the current recipient so the WebSocket handler
+  // always sees the latest value without needing to reconnect.
+  const recipientRef = useRef(recipient);
+  useEffect(() => {
+    recipientRef.current = recipient;
+  }, [recipient]);
+
   const { data: chatHistory, isLoading } = useGetChatMessagesQuery(
     { userId1: currentUserId, userId2: recipient.otherUserId },
     { skip: !currentUserId || !recipient?.otherUserId }
   );
 
-  // Load history
+  // Load history whenever the selected conversation changes
   useEffect(() => {
     if (chatHistory) setLocalMessages(chatHistory);
     else setLocalMessages([]);
@@ -124,26 +131,36 @@ function MessageThread({ currentUserId, recipient }) {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [localMessages]);
 
-  // WebSocket connection
+  // WebSocket connection — created ONCE per currentUserId, never torn down
+  // on conversation switch. The message handler reads recipientRef so it
+  // always routes to the currently open thread.
   useEffect(() => {
-    if (!currentUserId || !recipient?.otherUserId) return;
+    if (!currentUserId) return;
 
     const client = new Client({
       webSocketFactory: () => new SockJS("http://localhost:8080/ws-chat"),
       reconnectDelay: 5000,
       onConnect: () => {
         setConnected(true);
-        client.subscribe(`/user/${currentUserId}/queue/messages`, (frame) => {
+        // Subscribe to personal topic — server publishes here for both sender and recipient
+        client.subscribe(`/topic/messages/${currentUserId}`, (frame) => {
           const msg = JSON.parse(frame.body);
-          // Only add if it belongs to this conversation
+          const currentRecipientId = Number(recipientRef.current?.otherUserId);
+          // Only render the message if it belongs to the currently open conversation
           if (
-            Number(msg.senderId) === Number(recipient.otherUserId) ||
-            Number(msg.recipientId) === Number(recipient.otherUserId)
+            Number(msg.senderId) === currentRecipientId ||
+            Number(msg.recipientId) === currentRecipientId
           ) {
-            setLocalMessages((prev) => [...prev, msg]);
+            setLocalMessages((prev) => {
+              // Replace the optimistic local message (no id) with the server-confirmed one
+              const withoutOptimistic = prev.filter(
+                (m) => !(m._local && m.content === msg.content && Number(m.senderId) === Number(msg.senderId))
+              );
+              return [...withoutOptimistic, msg];
+            });
           }
         });
-        client.subscribe(`/user/${currentUserId}/queue/errors`, (frame) => {
+        client.subscribe(`/topic/errors/${currentUserId}`, (frame) => {
           setErrorMsg(frame.body);
           setTimeout(() => setErrorMsg(null), 4000);
         });
@@ -154,7 +171,7 @@ function MessageThread({ currentUserId, recipient }) {
     client.activate();
     setStompClient(client);
     return () => client.deactivate();
-  }, [currentUserId, recipient?.otherUserId]);
+  }, [currentUserId]); // ← dependency is only currentUserId, NOT recipient
 
   const handleSend = () => {
     const trimmed = inputValue.trim();

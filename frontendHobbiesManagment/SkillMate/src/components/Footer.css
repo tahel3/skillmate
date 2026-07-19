@@ -27,3 +27,30 @@
 .footer-text a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .main-footer {
+    padding: 16px 12px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-footer {
+    padding: 12px 10px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+  }
+
+  /* שובר את הטקסט לשורות אם הוא ארוך מדי */
+  .footer-text a {
+    display: inline-block;
+    margin-right: 3px;
+  }
+}

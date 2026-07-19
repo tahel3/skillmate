@@ -1,8 +1,8 @@
 package com.example.hobbiesmanagment.DTO;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -11,7 +11,9 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class ChatMessagePayload {
+        private Long id;
         private Long senderId;
         private Long recipientId;
         private String content;
+        private LocalDateTime timestamp;
 }

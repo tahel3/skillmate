@@ -192,3 +192,68 @@
   background: #bc4a23;
   color: white;
 }
+/* שינויים לעיצוב הרספונסיבי */
+
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 15px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .nav-links a, .logout-link {
+        font-size: 0.82rem;
+    }
+
+    .notif-dropdown {
+        width: 90vw;
+        right: 0;
+        left: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 8px 12px;
+        gap: 6px;
+    }
+
+    .logo img {
+        height: 38px;
+    }
+
+    .nav-links {
+        gap: 6px;
+        width: 100%;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a, .logout-link {
+        font-size: 0.78rem;
+        padding: 2px 0;
+    }
+
+    /* הסתרת קישורים פחות חשובים על מסכים קטנים מאוד */
+    .disabled-link {
+        display: none;
+    }
+
+    .notif-dropdown {
+        width: calc(100vw - 24px);
+        right: 0;
+    }
+}
+
+.nav-links a {
+    white-space: nowrap;
+}
+.nav-links a, .logout-link {
+    cursor: pointer;
+}
